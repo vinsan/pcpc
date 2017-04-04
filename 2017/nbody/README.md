@@ -1,5 +1,6 @@
 # N-body simulation 
-Examples MPI nbody problem implementation, project course of Parallel and Concurrent Programming.
+Project of Parallel and Concurrent Programming on the Cloud course.
+
 Professor: Vittorio Scarano
 
 ### Problem statement
@@ -33,17 +34,3 @@ This is a pseudocode for the basic solution:
     - for each local particle q -> Compute position and velocity,
     - allgather local positions into global position array;
   - Print positions and velocities of all particles;  
-
-### NLog(N) Solution 
-About the problem described “problem statement”, in this document’s section i described  parallel MPI implementation of “n-body problem” using Barnes-Hut Tree-Code.
-The Barnes-Hut algorithm, introduced by Josh Barnes and Piet Hut in 1986 [[2]](https://en.wikipedia.org/wiki/Barnes–Hut_simulation), describes a method to solve  “n-body problems”. The main difference with the previous implementation is that, instead of directly summing all the forces on a single particle, B-H’s implementation use a tree based approximation scheme to reduce the computational complexity from N^2 to NlogN.
-
-About this algorithm, i highlight that the main idea is to group nearby particles and approximate them as a single particle. If the group is sufficiently far away, we can approximate its gravitational effects by using its center of mass [[3]](http://www.cs.princeton.edu/courses/archive/fall03/cs126/assignments/barnes-hut.html). The center of mass of a group of particles is the average position of a particle in that group, weighted by mass. For example, if two particles have position (x1,y1) and (x2,y2) and masses m1 and m2, then their total mass and center of mass (x, y) are given by: 
-
-  m = m1 + m2;      
-    x = (x1m1 + x2m2) / m;      
-      y = (y1m1 + y2m2) / m.
-
-
-The Barnes-Hut algorithm is, for these reasons, a scheme for grouping together particles that are sufficiently nearby. Analyzing the problem in a two-dimensional space, i divide, recursively, the set of particles into groups by storing them in a quad-tree. A quad-tree is similar to a binary tree, except that each node has 4 children (that in the implementation i described as NO, NW, SE, SO). Each node represents a region of the two dimensional space. 
-In this way, the "root node" represents the whole space, and its four children represent the four main quadrants of the space. In fact, The tree is created by inserting the individual particles into tree through the main node. For this reason, when the particles are inserted into a tree node, tree node will divide the space represented by this node into four equal sized children nodes. Each child can in turn be broken into 4 subsquares to get its children, and so on. 
