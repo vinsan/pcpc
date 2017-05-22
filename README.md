@@ -125,7 +125,7 @@ int main(int argc, char** argv) {
 
 Each solution should be compliant with the problem project template. You can submit a solution via mail adopting the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a  compressed directory using tape archive.
 
-####### Prepare your submition
+##### Prepare your submition
 
 In your home project directory archives your project:
 ```
