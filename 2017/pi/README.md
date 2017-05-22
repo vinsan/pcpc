@@ -1,4 +1,4 @@
-# Finding PI using MPI collective operations 
+# Finding PI using MPI 
 
 Project of Parallel and Concurrent Programming on the Cloud course.
 Professor: Vittorio Scarano
