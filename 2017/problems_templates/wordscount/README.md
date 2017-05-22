@@ -1,4 +1,4 @@
-# Parallel Quick Sort
+# Parallel Words Count
 
 Project of Parallel and Concurrent Programming on the Cloud course.
 
