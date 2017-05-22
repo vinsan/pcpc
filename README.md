@@ -1,6 +1,6 @@
 # PCPC
 Parallel and Concurrent Programming on the Cloud -- Università degli Studi di Salerno
-
+--------------------------------------------------------------------------------------------------
 ### HOMEWORKS LIST
 
 #### 	Academic Year 2016/2017
@@ -10,7 +10,8 @@ Parallel and Concurrent Programming on the Cloud -- Università degli Studi di S
 - _nbody_	the n-body problem
 - _pi_ compute in parallel an approximation of PI
 - _wordscount_ compute the frequency of words in a set of files
-
+-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 ### How benchmark your applications on a cloud computing infrastructure? 
 
 #### Tools to benchmark on Amazon AWS
