@@ -25,11 +25,11 @@
 This method is based on the public StarCluster AMI ami-52a0c53b (Linux Ubuntu) available on us-east-1 AWS region. For other information visit the [StarCLuster site page](http://star.mit.edu/cluster/).
 
 #### How to manually configure a MPI cluster of two istances?
-In this example will be described how to execute a cluster of two t2.micro instances using the AWS WebConsole.
+In this example is described how to execute and manually configure a cluster of two t2.micro instances using the AWS WebConsole.
 
-1) Create a new key-pair and store it, suppose that the name of the key is _kcluster_.
-2) Start two new t2.micro instances using the StarCluster AMI (ami-52a0c53b) and select the _kcluster_ key-pair, additionally rename it as master and slave0. Set new rule to open all port 0-65535 from anywhere in the Configure Security Group tab.
-3) Connect using SSH and execute these commands on the master instance to create a new user pcpc and generate a SSH key:
+1) Create a new key-pair and store it on your local machine, suppose that the name of the key is _kcluster_.
+2) Start two new t2.micro instances using the StarCluster AMI (ami-52a0c53b) and select the _kcluster_ key-pair, additionally rename it as master and slave0. Set a new rule to the default security group that allows to open all TCP ports (0-65535) from anywhere (you can do it in the Configure Security Group tab).
+3) Connect via SSH and execute these commands on the master instance to create a new user pcpc and generate a SSH key:
 ```
 sudo useradd -s /bin/bash -m -d /home/pcpc -g root pcpc
 sudo mkdir -p /home/pcpc/.ssh
@@ -76,7 +76,7 @@ ssh localhost
 
 ##### HINT
 
-In order to add a new slave you have to repeat the steps in the range 4 and 6-9.
+In order to add a new slave you have to repeat the steps 4 and 6 to 9.
 
 ------------------------------------------------------------------------------------------------
 ## Test MPI Program
@@ -126,11 +126,11 @@ int main(int argc, char** argv) {
 ------------------------------------------------------------------------------------------------
 ### Submit a solution
 
-Each solution should be compliant with the problem project template. You can submit a solution via mail adopting the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a compressed directory using tape archive.
+Each solution should be compliant with the problem project template. You can submit a solution via mail using the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a compressed directory using tape archive.
 
 ##### Prepare your submition
 
-Each solution folder must contains at minimum the C source files and a Readme file (in markdown format) describing all benchmark (expressed in terms of strong and weak scalability) of the application (solutions without the Readme file and that cannot easily compile using mpicc will be not cosidered). 
+Each solution folder must contains at minimum the C sources and a Readme file (in Markdown format) describing all benchmarks (expressed in terms of strong and weak scalability) of the application. Solutions without the Readme file and that cannot easily compile using mpicc will be not considered.
 
 In your home project directory archives your project:
 ```
