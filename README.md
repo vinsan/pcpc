@@ -1,10 +1,10 @@
 # Parallel and Concurrent Programming and on the Cloud 
-## Master Degree Course of prof. Vittorio Scarano
-### Università degli Studi di Salerno
+#### Master Degree Course of prof. Vittorio Scarano
+##### Università degli Studi di Salerno
 --------------------------------------------------------------------------------------------------
-### HOMEWORKS LIST
 
-#### 	Academic Year 2016/2017
+### HOMEWORKS LIST
+#### Academic Year 2016/2017
 - _gameoflife_ the Conway's Game of Life Game.
 - _jacobi_	a simple Jacobi iteration.
 - _matrixmultiplication_	parallel matrix multiplication.
