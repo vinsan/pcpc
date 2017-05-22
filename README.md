@@ -60,15 +60,15 @@ scp -i pcpkey.pem pcpkey.pem ubuntu@ec2-34-207-88-239.compute-1.amazonaws.com:
 sudo scp -i pcpkey.pem ../pcpc/.ssh/id_rsa ubuntu@ip_slave_internal:
 sudo scp -i pcpkey.pem ../pcpc/.ssh/id_rsa.pub ubuntu@ip_slave_internal:
 ```
-7) Connect on each slave and set the owner as the pcpc user for the files id_rsa and id_rsa.pub.
+7) Connect on the slave and set the owner as the pcpc user for the files id_rsa and id_rsa.pub.
 ```
 sudo chown pcpc:root id_rsa id_rsa.pub 
 ```
-8) Connect on each slave and move the files id_rsa and id_rsa.pub on /home/pcpc/.ssh.
+8) Connect on the slave and move the files id_rsa and id_rsa.pub on /home/pcpc/.ssh.
 ```
 sudo mv id_rsa id_rsa.pub /home/pcpc/.ssh
 ```
-9) Login on each slave as pcpc user and set the SSH key.
+9) Login on the slave as pcpc user and set the SSH key.
 ```
 cat .ssh/id_rsa.pub >> .ssh/authorized_keys
 ssh localhost
@@ -76,7 +76,7 @@ ssh localhost
 
 ##### HINT
 
-In order to add a new slave you have to repeat the steps 4 and 6 to 9.
+In order to add a new slave you have to start new EC2 instance and repeat the steps 4 and from 6 to 9.
 
 ------------------------------------------------------------------------------------------------
 ## Test MPI Program
@@ -130,7 +130,7 @@ Each solution should be compliant with the problem project template. You can sub
 
 ##### Prepare your submition
 
-Each solution folder must contains at minimum the C sources and a Readme file (in Markdown format) describing all benchmarks (expressed in terms of strong and weak scalability) of the application. Solutions without the Readme file and that cannot easily compile using mpicc will be not considered.
+Each solution folder must contain the C sources and a Readme file (in Markdown format) describing all benchmarks (expressed in terms of strong and weak scalability) of the application. Solutions without the Readme file or that cannot easily compile using mpicc will be not considered.
 
 In your home project directory archives your project:
 ```
