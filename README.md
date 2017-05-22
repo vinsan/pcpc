@@ -1,6 +1,6 @@
-# PCPC
-Parallel and Concurrent Programming on the Cloud
-Università degli Studi di Salerno
+# Parallel and Concurrent Programming and on the Cloud 
+## Master Degree Course of prof. Vittorio Scarano
+### Università degli Studi di Salerno
 --------------------------------------------------------------------------------------------------
 ### HOMEWORKS LIST
 
