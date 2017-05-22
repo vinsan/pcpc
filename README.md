@@ -126,9 +126,11 @@ int main(int argc, char** argv) {
 ------------------------------------------------------------------------------------------------
 ### Submit a solution
 
-Each solution should be compliant with the problem project template. You can submit a solution via mail adopting the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a  compressed directory using tape archive.
+Each solution should be compliant with the problem project template. You can submit a solution via mail adopting the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a compressed directory using tape archive.
 
 ##### Prepare your submition
+
+Each solution folder must contains at minimum the C source files and a Readme file (in markdown format) describing all benchmark (expressed in terms of strong and weak scalability) of the application (solutions without the Readme file and that cannot easily compile using mpicc will be not cosidered). 
 
 In your home project directory archives your project:
 ```
