@@ -1,6 +1,5 @@
 # N-body simulation 
 Project of Parallel and Concurrent Programming on the Cloud course.
-
 Professor: Vittorio Scarano
 
 ### Problem statement
@@ -10,27 +9,17 @@ An n-body solver is a program that finds the solution to an n-body problem by si
 The problem is described [here](https://en.wikipedia.org/wiki/N-body_simulation).
 
 ### N^2 Solution
-About the problem described in the “problem statement”, in this document’s section i described a basic parallel MPI based implementation of “n-body problem”.
-Basic algorithm’s idea is that the only communication among the process/tasks occurs when the algorithm is computing the forces and, in order of the computing, each process/task needs the position and mass of every other system's particle. 
-In this way, i use [MPI_Allgather](http://www.mpich.org/static/docs/v3.2/www3/MPI_Allgather.html) that is expressly designed for this situation; in fact this MPI function gathers data from all processes and distributes it to all processes.
-An other important observation is that i don’t collect data about a single particle (e.g. mass, velocity, position) into a single datatype struct. However, if i use this datatype in MPI implementation, i’ll need to use a derived datatype in the call to MPI_Allgather, and the communications with this datatype tend to be slower than communications with basic MPI datatype. For this reason, i use individual arrays for the masses, positions, and velocities. [[1]](https://books.google.it/books?id=SEmfraJjvfwC&printsec=frontcover&hl=it&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false). Other importart reason why, in my implementation, i don't use struct datatype is that i haven't constraints the simulation in two-dimensions or three-dimensions. In fact using arrays i can simulate the interaction of the particles in space or in the plane only change a macro; if i use a struct i'd rewrite the entire code. 
+Consider only the solution that is quadratic in the number of particles.
 
-About the implementation, i suppose that the array ‘positions’ can store the position of all system's particles. Further, i define 'vectorMPI' that is an MPI datatype that stores two contiguous doubles. Also i suppose that 'num_particles' (number of all particles into the system) is evenly divisible by size(number of process) and chunk=num_particles/size.
+### Benchmarking
 
-In this implementation, i made the following choice:
-  - each process stores the entire global array of particles masses;
-  - each process only uses a single n-element array for position;
-  - each process uses a pointer 'my_positions' that refers to the start of its block of positions. Thus, on process 0   my_positions = positions; on process 1 my_position = position + chunk, and, so on.
+1) Provide a solution to the problem exploiting parallel computation and develop  a C program using MPI. The provided implementation can use Point-to-Point communication or Collective communication routines.
+2) Benchmark the solution on Amazon AWS (EC2) on General Purpose instances (e.g. M3.medium family) or on Compute optimize instances (e.g. C3.large family).  Testing the solution using 1, 2, 4, 8, 16, 32 instances.
+3) Both weak and strong scalability have to be analyzed:
+- Strong Scaling: Keeping the problem size fixed and pushing in more workers or processors. Goal: Minimize time to solution for a given problem.
+- Weak Scaling: Keeping the work per worker fixed and adding more workers/processors (the overall problem size increases). Goal: solve the larger problems.
 
-It will also read the input and print the results.
-So process 0 reads all the initial conditions into three n-element arrays. Since i’m storing all the masses on each process, i broadcast masses. Also, since each process will need the global array of positions for the first computation of forces, i broadcast positions. However, velocities are only used locally for the updates to positions and velocities, so we scatter velocieties.
+###### HINT
 
-This is a pseudocode for the basic solution:
-[[1]](https://books.google.it/books?id=SEmfraJjvfwC&printsec=frontcover&hl=it&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false)
-  - Get input data;
-  - For each timestep:
-    - if (timestep output) Print positions and velocities of particles,
-    - for each local particle q -> Compute total force on q,
-    - for each local particle q -> Compute position and velocity,
-    - allgather local positions into global position array;
-  - Print positions and velocities of all particles;  
+1) The results should be proposed as two different scatter x-y charts. Where the x are the number of MPI processors used and the y value are the time in milliseconds.  
+2) The number of MPI processors should be egual to the number of cores not to the number of instances.
