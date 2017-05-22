@@ -72,7 +72,9 @@ ssh localhost
 ```
 
 ##### HINT
+
 In order to add a new slave you have to repeat the steps in the range 4 and 6-9.
+
 ------------------------------------------------------------------------------------------------
 ## Test MPI Program
 
