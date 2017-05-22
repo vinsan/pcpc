@@ -1,11 +1,9 @@
 # PCPC
 Parallel and Concurrent Programming on the Cloud -- Università degli Studi di Salerno
 
-### HOMEWORKKS
+### HOMEWORKS
 
 #### 2017 
-### MPI CLuster Setup
-
 - _gameoflife_ the Conway's Game of Life Game
 - _jacobi_	a simple Jacobi iteration
 - _matrixmultiplication_	parallel matrix multiplication
