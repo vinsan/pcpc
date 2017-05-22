@@ -11,7 +11,7 @@ Parallel and Concurrent Programming on the Cloud -- Università degli Studi di S
 - _pi_ compute in parallel an approximation of PI
 - _wordscount_ compute the frequency of words in a set of files
 -------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------
+
 ### How benchmark your applications on a cloud computing infrastructure? 
 
 #### Tools to benchmark on Amazon AWS
@@ -73,7 +73,7 @@ ssh localhost
 
 ##### HINT
 In order to add a new slave you have to repeat the steps in the range 4 and 6-9.
-
+------------------------------------------------------------------------------------------------
 ## Test MPI Program
 
 Follow these steps in order to create and test a Hello World MPI program. Consider that you are logged as pcpc user on the master node.
@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
 - Run the program on the cluster
 ```mpirun -np 4 --host MASTER,IP_SLAVE1,IP_SLAVE2 hello```
 
-
+------------------------------------------------------------------------------------------------
 ### Submit a solution
 
 Each solution should be compliant with the problem project template. You can submit a solution via mail adopting the [PCPC-SOLUTION]  object to vitsca@dia.unisa.it and cspagnuolo@unisa.it. The submitted file should be a  compressed directory using tape archive.
