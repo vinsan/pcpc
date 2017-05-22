@@ -13,17 +13,19 @@
 - _wordscount_ compute the frequency of words in a set of files.
 -------------------------------------------------------------------------------------------------
 
-### How benchmark your applications on a cloud computing infrastructure? 
+## How benchmark your applications on a cloud computing infrastructure? 
 
-#### Tools to benchmark on Amazon AWS
+### Tools to benchmark on Amazon AWS
+
 - StraCluster toolkit use this [script](https://github.com/spagnuolocarmine/amazonhpc) to setup an Amazon EC2 cluster supporting OpenMPI
 -  [Java application](https://github.com/spagnuolocarmine/aws-cluster-toolkit)  to setup an Amazon EC2 cluster supporting OpenMPI based on StarCLuster AMI
 
 ### Start EC2 instances and configure manually an MPI cluster
 
-This EC2 instances MPI cluster machine is based on the public StarCluster AMI ami-52a0c53b available on us-east-1 AWS region.
+This method is based on the public StarCluster AMI ami-52a0c53b (Linux Ubuntu) available on us-east-1 AWS region. For other information visit the [StarCLuster site page](http://star.mit.edu/cluster/).
 
-Suppose to build a cluster of two t2.micro instances from the AWS WebConsole, you have to follow these steps:
+#### How to manually configure a MPI cluster of two istances?
+In this example will be described how to execute a cluster of two t2.micro instances using the AWS WebConsole.
 
 1) Create a new key-pair and store it, suppose that the name of the key is _kcluster_.
 2) Start two new t2.micro instances using the StarCluster AMI (ami-52a0c53b) and select the _kcluster_ key-pair, additionally rename it as master and slave0. Set new rule to open all port 0-65535 from anywhere in the Configure Security Group tab.
