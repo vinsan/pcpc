@@ -27,5 +27,5 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ###### HINT
 
-1) The results should be proposed as two different scatter x-y charts. Where the x are the number of MPI processors used and the y value are the time in milliseconds.  
-2) The number of MPI processors should be egual to the number of cores not to the number of instances.
+1) The results should be presented as two different scatter x-y charts, where the x-axis denotes the number of MPI processors used and the y-axis value represents the time in milliseconds.  
+2) The number of MPI processors should be equal to the number of cores.
