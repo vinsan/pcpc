@@ -10,7 +10,9 @@ The problem is described [here](https://en.wikipedia.org/wiki/N-body_simulation)
 
 ### N^2 Solution
 Consider only the solution that is quadratic in the number of particles.
+### Example Solution Sequential
 
+[nbody.c](https://github.com/harrism/mini-nbody/blob/master/nbody.c)
 
 ### Benchmarking
 
