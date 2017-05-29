@@ -130,7 +130,7 @@ Each solution should be compliant with the problem project template. You can sub
 
 ##### Prepare your submition
 
-Each solution folder must contain the C sources and a Readme file (in Markdown format) describing all benchmarks (expressed in terms of strong and weak scalability) of the application. Solutions without the Readme file or that cannot easily compile using mpicc will be not considered.
+Each solution folder must contain the C sources and a report Readme file (in Markdown format) describing all benchmarks (expressed in terms of strong and weak scalability) of the application. Solutions without the Readme file or that cannot easily compile using mpicc will be not considered.
 
 In your home project directory archives your project:
 ```
