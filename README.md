@@ -18,7 +18,7 @@
 - m4.large (ex. m3)
 - m4.xlarge (ex. c3)
 
-(AWS Educate Instances)[https://s3.amazonaws.com/awseducate-starter-account-services/AWS_Educate_Starter_Accounts_and_AWS_Services.pdf]
+[AWS Educate Instances](https://s3.amazonaws.com/awseducate-starter-account-services/AWS_Educate_Starter_Accounts_and_AWS_Services.pdf)
 
 ## How benchmark your applications on a cloud computing infrastructure? 
 
