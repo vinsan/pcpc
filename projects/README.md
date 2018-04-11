@@ -1,4 +1,4 @@
-#### Academic Year 2016/2017
+#### Projects List
 - _gameoflife_ the Conway's Game of Life Game.
 - _jacobi_	a simple Jacobi iteration.
 - _matrixmultiplication_	parallel matrix multiplication.

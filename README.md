@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------------------------
 
 ### HOMEWORKS LIST
-#### Academic Year 2016/2017
+#### PROJECTS LIST
 - _gameoflife_ the Conway's Game of Life Game.
 - _jacobi_	a simple Jacobi iteration.
 - _matrixmultiplication_	parallel matrix multiplication.
