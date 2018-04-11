@@ -3,8 +3,7 @@
 ##### Università degli Studi di Salerno
 --------------------------------------------------------------------------------------------------
 
-### HOMEWORKS LIST
-#### PROJECTS LIST
+### Homeworks List
 - _gameoflife_ the Conway's Game of Life Game.
 - _jacobi_	a simple Jacobi iteration.
 - _matrixmultiplication_	parallel matrix multiplication.
@@ -12,6 +11,22 @@
 - _pi_ compute in parallel an approximation of PI.
 - _wordscount_ compute the frequency of words in a set of files.
 -------------------------------------------------------------------------------------------------
+
+## Homework Evaluation Criteria
+
+Homeworks are evaluated on a range of 30 total points. The final score is diveded in four level:
+
+- **A** [30-28]
+- **B** [27-25]
+- **C** [24-22]
+- **D** [21-18]
+
+#### Points
+
+- **Correctness**. 0 to 15 points. Measures the group's commitment to develop a solution that is compliant with the problem requirement (obviously!). But also solution that solve part of the problem can be evaluated, if it is clear that only minor part of the problem are not correctly solved.
+- **Style**. 0 to 10 points. Measures the group's commitment to develop a solution styling it and exploiting all features of TomP2P and Java 7 or greater, paying attention to use arguments of the fundamental part and DHT.
+- **Innovation**. 0 to 5 points. Measures the group's commitment to develop additional features to provide application that are more similar to real ones.
+- **Lateness**. The total score is decreased by 5% each day, until a 40% eight days or more late. The homework _must_ be subitted for review 8 days before the exam date.
 
 ## Update Execute benchmark!
 
