@@ -153,7 +153,7 @@ tar -xvf solution.tar.gz
 ```
 ## Benchmark your solutions:
 
-Present the results of  benchmarks varying the number of EC2 instances involved in the computation. The results should be presented in terms of (strong and weak scalability)[https://www.sharcnet.ca/help/index.php/Measuring_Parallel_Scaling_Performance].
+Present the results of  benchmarks varying the number of EC2 instances involved in the computation. The results should be presented in terms of [strong and weak scalability](https://www.sharcnet.ca/help/index.php/Measuring_Parallel_Scaling_Performance).
 
 ## Homework Evaluation Criteria
 
