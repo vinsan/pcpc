@@ -12,7 +12,7 @@
 - _wordscount_ compute the frequency of words in a set of files.
 -------------------------------------------------------------------------------------------------
 
-## Develop different soluzions to the problem using:
+## Develop different soluzions to the problem exploiting:
 - only point-to-point MPI communication routines.
 - only collective MPI communication routines.
 - point-to-point and collective MPI communication routines.
@@ -151,6 +151,9 @@ Extract your project:
 ```
 tar -xvf solution.tar.gz
 ```
+## Benchmark your solutions:
+
+Present the results of  benchmarks varying the number of EC2 instances involved in the computation. The results should be presented in terms of (strong and weak scalability)[https://www.sharcnet.ca/help/index.php/Measuring_Parallel_Scaling_Performance].
 
 ## Homework Evaluation Criteria
 
