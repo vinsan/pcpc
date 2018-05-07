@@ -12,7 +12,7 @@
 - _wordscount_ compute the frequency of words in a set of files.
 -------------------------------------------------------------------------------------------------
 
-## Update Execute benchmark!
+## Execute benchmark on different EC2 instances types:
 
 - m4.large (ex. m3)
 - m4.xlarge (ex. c3)
@@ -21,7 +21,7 @@
 
 ## How benchmark your applications on a cloud computing infrastructure? 
 
-### Tools to benchmark on Amazon AWS
+### Others Tools to benchmark on Amazon AWS (it does not woek using Amazon AWS Educate [last check May 2018])
 
 - StraCluster toolkit use this [script](https://github.com/spagnuolocarmine/amazonhpc) to setup an Amazon EC2 cluster supporting OpenMPI
 -  [Java application](https://github.com/spagnuolocarmine/aws-cluster-toolkit)  to setup an Amazon EC2 cluster supporting OpenMPI based on StarCLuster AMI
