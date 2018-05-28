@@ -5,9 +5,46 @@ Professor: Vittorio Scarano
 
 ### Problem statement
 
-This exercise presents a simple program to determine the value of pi. The algorithm suggested here is chosen for its simplicity. The method evaluates the integral of ```4/(1+x\*x)``` between 0 and 1. 
+This exercise presents tow simple program to determine the value of pi. 
 
-The method is simple: the integral is approximated by a sum of n intervals; the approximation to the integral in each interval is ```(1/n)*4/(1+x\*x)```. The master process (rank 0) asks the user for the number of intervals; the master should then broadcast this number to all of the other processes. Each process then adds up every n'th interval (```x = rank/n, rank/n+size/n,...```). Finally, the sums computed by each process are added together using a reduction.
+- Tapezoid rule. The method evaluates the integral of ```4/(1+x\*x)``` between 0 and 1. 
+- Monte Carlo method. 
+
+ ```
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#define SEED 35791246
+
+int main(int argc, char** argv)
+{
+   int niter=0;
+   double x,y;
+   int i,count=0; /* # of points in the 1st quadrant of unit circle */
+   double z;
+   double pi;
+
+   printf("Enter the number of iterations used to estimate pi: ");
+   scanf("%d",&niter);
+
+   /* initialize random numbers */
+   srand(SEED);
+   count=0;
+   for ( i=0; i<niter; i++) {
+      x = (double)rand()/RAND_MAX;
+      y = (double)rand()/RAND_MAX;
+      z = x*x+y*y;
+      if (z<=1) count++;
+      }
+   pi=(double)count/niter*4;
+   printf("# of trials= %d , estimate of pi is %g \n",niter,pi);
+
+return 0;
+}
+ ```
+
+
 
 
 ### Benchmarking
