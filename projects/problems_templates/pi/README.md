@@ -7,7 +7,7 @@ Professor: Vittorio Scarano
 
 This exercise presents tow simple program to determine the value of pi. 
 
-- Tapezoid rule. The method evaluates the integral of ```4/(1+x\*x)``` between 0 and 1. 
+- Tapezoid rule. f(x)=4/(1+x^2), so PI is the integral of f(x) from 0 to 1. Then PI can be easily caculated using trapezoid rule.
 - Monte Carlo method. 
 
  ```
