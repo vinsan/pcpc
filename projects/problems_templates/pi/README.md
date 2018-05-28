@@ -8,6 +8,31 @@ Professor: Vittorio Scarano
 This exercise presents tow simple program to determine the value of pi. 
 
 - Tapezoid rule. f(x)=4/(1+x^2), so PI is the integral of f(x) from 0 to 1. Then PI can be easily caculated using trapezoid rule.
+ ```
+#include <stdio.h>
+
+#define N 1E7
+#define d 1E-7
+#define d2 1E-14
+
+int main (int argc, char* argv[])
+{
+    double pi=0.0, result=0.0,x2=0.0;
+		int i=0;
+
+    for (i=0; i<N; i+=1)
+    {
+        x2=d2*i*i;
+        result+=1.0/(1.0+x2);
+    }
+    
+    pi=4*d*result;
+    printf("PI=%lf\n", pi);
+    
+    return 0;
+}
+ ```
+ 
 - Monte Carlo method. 
 
  ```
@@ -44,6 +69,7 @@ return 0;
 }
  ```
 
+PROVIDE A SOLUTION THAT COMPARE THE SPEEDUP AND THE PI VALUE OF THE TWO DIFFERENT METHODS.
 
 
 
