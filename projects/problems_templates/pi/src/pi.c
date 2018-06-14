@@ -76,9 +76,8 @@ int main(int argc, char *argv[]){
 	double z;
 	double mc_pi=0.0;
 
-	/* initialize random numbers */
+	/* initialize random numbers and timer */
 	srand(SEED);
-	count=0;
 	double montecarlo_time = MPI_Wtime();
 
 	if(my_rank==num_procs-1){
