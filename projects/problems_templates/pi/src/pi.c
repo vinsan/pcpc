@@ -106,7 +106,7 @@ int main(int argc, char *argv[]){
 	if(my_rank==0){
 		mc_pi=(double)mc_global_result/N*4;
 		montecarlo_time = MPI_Wtime() - montecarlo_time;
-		printf("Monte Carlo method: # of trials= %li, estimate of pi is %g\n", N, mc_pi);
+		printf("Monte Carlo method: # of trials= %li, estimate of pi is %.16f\n", N, mc_pi);
 		if(montecarlo_time>1){
 			printf("Monte Carlo method: Time spent %f seconds", montecarlo_time);
 		}else if(montecarlo_time>60){
