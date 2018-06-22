@@ -108,11 +108,11 @@ int main(int argc, char *argv[]){
 		montecarlo_time = MPI_Wtime() - montecarlo_time;
 		printf("Monte Carlo method: # of trials= %li, estimate of pi is %.16f\n", N, mc_pi);
 		if(montecarlo_time>1){
-			printf("Monte Carlo method: Time spent %f seconds", montecarlo_time);
+			printf("Monte Carlo method: Time spent %f seconds\n", montecarlo_time);
 		}else if(montecarlo_time>60){
-			printf("Monte Carlo method: Time spent %f minutes", montecarlo_time/60);
+			printf("Monte Carlo method: Time spent %f minutes\n", montecarlo_time/60);
 		}else
-			printf("Monte Carlo method: Time spent %f milliseconds", montecarlo_time*1000);
+			printf("Monte Carlo method: Time spent %f milliseconds\n", montecarlo_time*1000);
 	}
 
 	MPI_Finalize();	/* shut down MPI */
