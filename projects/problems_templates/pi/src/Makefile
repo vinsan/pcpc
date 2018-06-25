@@ -1,82 +1,43 @@
-#!/usr/bin/make -f
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
 
-VERSION = $(shell cat ../VERSION)
+-include ../makefile.init
 
-TARGET := main
+RM := rm -rf
 
-#############################
-# Local paths 				#
-#############################
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include src/subdir.mk
+-include subdir.mk
+-include objects.mk
 
-INCLUDES =../include
-LOCAL_LIBS =../lib
-OBJECTS=obj
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
 
-#############################
-# Shared recources 			#
-#############################
+-include ../makefile.defs
 
-# Uncomment or add what's necessary
+# Add inputs and outputs from these tool invocations to the build variables 
 
-SHARED_CFLAGS = \
-	-I$(INCLUDES) \
-	$(shell pkg-config --cflags glib-2.0)	\
-#	$(shell pkg-config --cflags json-glib-1.0) \
-#	$(shell pkg-config --cflags libcurl) \
-#	$(shell pkg-config --cflags purple)
+# All Target
+all: pi
 
-SHARED_LIBS = \
-	$(shell pkg-config --libs glib-2.0)	\
-#	$(shell pkg-config --libs json-glib-1.0) \
-#	$(shell pkg-config --libs libcurl) \
-#	$(shell pkg-config --libs purple)
+# Tool invocations
+pi: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GCC C Linker'
+	mpicc  -o "pi" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
 
-
-#############################
-# Compiler flags 			#
-#############################
-
-# Uncomment or add what's necessary
-
-CC=mpicc
-
-CFLAGS= \
-	$(SHARED_CFLAGS) \
-	-g \
-	-g3 \
-	-Wall \
-	-fPIC \
-	-Wextra \
-	-Wformat \
-	-std=c99 \
-	-Wno-unused-parameter \
-	-Werror=format-security
-
-LDFLAGS ?= \
-#	-shared \
-#	-fPIC
-
-
-LIBS= \
-	$(SHARED_LIBS)
-
-
-# Find all .h files in includes directory
-_DEPS = $(wildcard *.h)
-DEPS = $(patsubst %, $(INCLUDES)/%, $(_DEPS))
-
-# Find all .c files and rename them as .o files
-_OBJ = $(patsubst %.c, %.o, $(wildcard *.c))
-OBJ = $(patsubst %,$(OBJECTS)/%,$(_OBJ))
-
-.PHONY: clean all install
-
-$(OBJECTS)/%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(TARGET): $(OBJ)
-	$(CC) $(LDFLAGS) -o $@ $^ $(CFLAGS) $(LIBS)
-
-# Clean up
+# Other Targets
 clean:
-	rm -f $(TARGET) $(OBJECTS)/*.o *~ core $(INCDIR)/*~
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) pi
+	-@echo ' '
+
+.PHONY: all clean dependents
+
+-include ../makefile.targets
