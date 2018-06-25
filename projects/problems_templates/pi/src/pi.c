@@ -35,6 +35,8 @@ int main(int argc, char *argv[]){
 	MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);	/* find out process rank */
 	MPI_Comm_size(MPI_COMM_WORLD, &num_procs);	/* find out number of processes */
 
+	printf("Process %d running...\n", my_rank);	//DEBUG
+
 	/* Tapezoid rule */
 	double tapezoid_time = MPI_Wtime();
 	d = 1.00/N;
