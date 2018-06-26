@@ -25,3 +25,9 @@ I test di Weak Scaling sono stati effettuati incrementando in maniera lineare pa
 Per come è strutturata la distribuzione del carico, questo significa che ogni nodo eseguirà 1E8 calcoli per la Tapezoid Rule e 1E8 calcoli per il metodo Montecarlo.
 
 I grafici sono stati realizzati con Excel. Non ci sono segnalazioni particolari per quanto riguarda i 2 grafici dei tempi. Per quanto riguarda i grafici del Pi greco, si segnala che sono stati realizzati in 3D anzicchè 2D per garantire una maggiore leggibilità ed il confronto con il Pi Greco Reale e che, date le limitazioni di Excel, i valori di Pi Greco calcolati dal progetto sono stati arrotondati (per difetto o per eccesso a seconda dei casi) da 16 cifre decimali a 14 cifre decimali. I valori completi dei test sono forniti nel pdf allegato. 
+
+Compressione del progetto:
+tar -cvf solution.tar.gz *
+
+Estrazione del Progetto:
+tar -xvf solution.tar.gz
