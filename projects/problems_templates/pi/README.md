@@ -12,8 +12,7 @@ OUTPUT: il programma stampa a video il valore di Pi Greco calcolato con la Tapez
 
 LIBRERIE e DATI: oltre alla libreria di MPI, non sono richieste librerie esterne per eseguire il programma. Non si utilizzano dati esterni in quanto l'unico valore necessario è fornito in input dall'utente oppure viene utilizzato un valore di default.
 
-TEST E GRAFICI
-I test di Strong Scaling sono stati effettuati impostando come come valore di param fisso 2147483647 (il valore masismo per una variabile di tipo long).
+TEST E GRAFICI: I test di Strong Scaling sono stati effettuati impostando come come valore di param fisso 2147483647 (il valore masismo per una variabile di tipo long).
 I test di Weak Scaling sono stati effettuati incrementando in maniera lineare param di 1E8 per ogni nodo secondo il seguente schema:
 1 - 1E8
 2 - 2E8
