@@ -1,87 +1,28 @@
-# Finding PI using MPI 
+SANTORO VINCENZO MATR. 0522500487
 
-Project of Parallel and Concurrent Programming on the Cloud course.
-Professor: Vittorio Scarano
+Il progetto è stato testato su un Cluster Amazon di dimensione 8 con macchine M4.xlarge generato tramite lo script aws-build-cluster-script di Sergio Guastaferro: https://github.com/isislab-unisa/aws-build-cluster-script
 
-### Problem statement
+Nella cartella Debug è presente il makefile per compilare il progetto. Una volta compilato è possibile eseguire il programma digitando
+mpirun -np x  --hostfile myhostfile_x pi param
+con x numero di nodi con i quali si vuole eseguire il programma e param il numero di iterazioni totali da eseguire. param è un parametro opzionale, se non viene fornito il programma effettuerà 1E7 iterazioni per Tapezoid e 1E7 iterazioni per Montecarlo. Il numero totale di iterazioni è memorizzato in una variabile di tipo long.
 
-This exercise presents tow simple program to determine the value of pi. 
+MPI: le funzioni MPI utilizzate sono MPI_Init(&argc, &argv), MPI_Comm_rank(MPI_COMM_WORLD, &my_rank), e MPI_Comm_size(MPI_COMM_WORLD, &num_procs) per l'inizializzazione; MPI_Wtime() per calcolare il tempo di esecuzione e MPI_Reduce come funzione di comunicazione collettiva.
 
-- Tapezoid rule. f(x)=4/(1+x^2), so PI is the integral of f(x) from 0 to 1. Then PI can be easily caculated using trapezoid rule.
- ```
-#include <stdio.h>
+OUTPUT: il programma stampa a video il valore di Pi Greco calcolato con la Tapezoid rule e il relativo tempo di esecuzione, poi stampa a video il valore di Pi Greco calcolato con il metodo Montecarlo e il relativo tempo di esecuzione per poi terminare.
 
-#define N 1E7
-#define d 1E-7
-#define d2 1E-14
+LIBRERIE e DATI: oltre alla libreria di MPI, non sono richieste librerie esterne per eseguire il programma. Non si utilizzano dati esterni in quanto l'unico valore necessario è fornito in input dall'utente oppure viene utilizzato un valore di default.
 
-int main (int argc, char* argv[])
-{
-    double pi=0.0, result=0.0,x2=0.0;
-		int i=0;
+TEST E GRAFICI
+I test di Strong Scaling sono stati effettuati impostando come come valore di param fisso 2147483647 (il valore masismo per una variabile di tipo long).
+I test di Weak Scaling sono stati effettuati incrementando in maniera lineare param di 1E8 per ogni nodo secondo il seguente schema:
+1 - 1E8
+2 - 2E8
+3 - 3E8
+4 - 4E8
+5 - 5E8
+6 - 6E8
+7 - 7E8
+8 - 8E8
+Per come è strutturata la distribuzione del carico, questo significa che ogni nodo eseguirà 1E8 calcoli per la Tapezoid Rule e 1E8 calcoli per il metodo Montecarlo.
 
-    for (i=0; i<N; i+=1)
-    {
-        x2=d2*i*i;
-        result+=1.0/(1.0+x2);
-    }
-    
-    pi=4*d*result;
-    printf("PI=%lf\n", pi);
-    
-    return 0;
-}
- ```
- 
-- Monte Carlo method. 
-
- ```
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#define SEED 35791246
-
-int main(int argc, char** argv)
-{
-   int niter=0;
-   double x,y;
-   int i,count=0; /* # of points in the 1st quadrant of unit circle */
-   double z;
-   double pi;
-
-   printf("Enter the number of iterations used to estimate pi: ");
-   scanf("%d",&niter);
-
-   /* initialize random numbers */
-   srand(SEED);
-   count=0;
-   for ( i=0; i<niter; i++) {
-      x = (double)rand()/RAND_MAX;
-      y = (double)rand()/RAND_MAX;
-      z = x*x+y*y;
-      if (z<=1) count++;
-      }
-   pi=(double)count/niter*4;
-   printf("# of trials= %d , estimate of pi is %g \n",niter,pi);
-
-return 0;
-}
- ```
-
-PROVIDE A SOLUTION THAT COMPARE THE SPEEDUP AND THE PI VALUE OF THE TWO DIFFERENT METHODS.
-
-
-
-### Benchmarking
-
-1) Provide a solution to the problem exploiting parallel computation and develop  a C program using MPI. The provided implementation can use either Point-to-Point communication or Collective communication routines.
-2) Benchmark the solution on Amazon AWS (EC2) on General Purpose instances (e.g. M3.medium family) or on Compute optimize instances (e.g. C3.large family).  Testing the solution using 1, 2, 3, 4, 5, 6, 7, 8 instances.
-3) Both weak and strong scalability have to be analyzed:
-- Strong Scaling: Keeping the problem size fixed and pushing in more workers or processors. Goal: Minimize time to solution for a given problem.
-- Weak Scaling: Keeping the work per worker fixed and adding more workers/processors (the overall problem size increases). Goal: solve the larger problems.
-
-###### HINT
-
-1) The results should be presented as two different scatter x-y charts, where the x-axis denotes the number of MPI processors used and the y-axis value represents the time in milliseconds.  
-2) The number of MPI processors should be equal to the number of cores.
+I grafici sono stati realizzati con Excel. Non ci sono segnalazioni particolari per quanto riguarda i 2 grafici dei tempi. Per quanto riguarda i grafici del Pi greco, si segnala che sono stati realizzati in 3D anzicchè 2D per garantire una maggiore leggibilità ed il confronto con il Pi Greco Reale e che, date le limitazioni di Excel, i valori di Pi Greco calcolati dal progetto sono stati arrotondati (per difetto o per eccesso a seconda dei casi) da 16 cifre decimali a 14 cifre decimali. I valori completi dei test sono forniti nel pdf allegato. 
